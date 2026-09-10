@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0d1b2a" />
+<title>E-Manual Search</title>
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+
+  <div class="left-pane">
+    <header class="topbar">
+      <div class="title-row">
+        <div class="title-text">
+          <h1 id="app-title">E-Manual Search</h1>
+          <div class="app-subtitle" id="app-subtitle"></div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="toc-btn" title="Table of contents" aria-label="Table of contents">☰</button>
+          <button class="icon-btn" id="settings-btn" title="Settings" aria-label="Settings">⚙</button>
+        </div>
+      </div>
+      <div class="search-box">
+        <span aria-hidden="true">🔎</span>
+        <input id="search-input" type="search" placeholder="Search the manual…" autocomplete="off" autocorrect="off" spellcheck="false" />
+        <button class="clear-btn" id="clear-btn" aria-label="Clear search">✕</button>
+      </div>
+      <div class="status-strip">
+        <span class="dot" id="status-dot"></span>
+        <span id="status-text">Checking connection…</span>
+      </div>
+    </header>
+
+    <main>
+      <div id="results"></div>
+    </main>
+  </div>
+
+  <div class="loading-screen" id="loading">
+    <div class="spinner"></div>
+    <div>Loading the manual for offline use…</div>
+  </div>
+
+  <div class="reader-overlay" id="reader">
+    <div class="reader-top">
+      <button class="icon-btn" id="reader-close" aria-label="Close">←</button>
+      <div class="reader-title" id="reader-title"></div>
+    </div>
+    <div class="reader-body" id="reader-body"></div>
+    <div class="reader-bottom">
+      <button id="reader-prev">‹ Prev</button>
+      <button id="reader-view-image">📷 View page</button>
+      <button id="reader-next">Next ›</button>
+    </div>
+  </div>
+
+  <div class="sheet-backdrop" id="sheet-backdrop"></div>
+  <div class="sheet" id="settings-sheet">
+    <h2>Settings</h2>
+    <div class="sheet-row">
+      <span>Text size</span>
+      <div class="font-controls">
+        <button id="font-minus" aria-label="Decrease text size">A−</button>
+        <span id="font-value">100%</span>
+        <button id="font-plus" aria-label="Increase text size">A+</button>
+      </div>
+    </div>
+    <div class="sheet-row">
+      <span>Appearance</span>
+      <div class="theme-controls" id="theme-controls">
+        <button data-theme-choice="system">Auto</button>
+        <button data-theme-choice="light">Light</button>
+        <button data-theme-choice="dark">Dark</button>
+      </div>
+    </div>
+    <div class="sheet-row">
+      <span>Works fully offline</span>
+      <span>✓</span>
+    </div>
+    <div class="sheet-row">
+      <span></span>
+      <button class="icon-btn" id="settings-close" style="width:auto;padding:8px 16px;">Done</button>
+    </div>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
